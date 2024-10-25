@@ -12,6 +12,7 @@ import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import {
   LinearTransition
 } from 'react-native-reanimated';
+import Auth from '../auth/_layout';
 
 const Container = styled(BlurView)`
     height: 75px;
@@ -89,31 +90,32 @@ export default function TabLayout() {
   }
 
   return (
-    <Tabs
-      tabBar={(props) => <TabBar {...props} />}
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}
-    >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    // <Tabs
+    //   tabBar={(props) => <TabBar {...props} />}
+    //   screenOptions={{
+    //     tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+    //     headerShown: false,
+    //   }}
+    // >
+    //   <Tabs.Screen
+    //     name="index"
+    //     options={{
+    //       title: 'Home',
+    //       tabBarIcon: ({ color, focused }) => (
+    //         <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+    //       ),
+    //     }}
+    //   />
+    //   <Tabs.Screen
+    //     name="explore"
+    //     options={{
+    //       title: 'Explore',
+    //       tabBarIcon: ({ color, focused }) => (
+    //         <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+    //       ),
+    //     }}
+    //   />
+    // </Tabs>
+    <Auth />
   );
 }
