@@ -89,6 +89,7 @@ const PaginationIndicator = ({ animation }: { animation: SharedValue }) => {
     const colorScheme = useColorScheme();
     const stylez = useAnimatedStyle(() => {
         return {
+            // @ts-ignore
             width: _dotContainer + _dotContainer * animation.value,
         }
     });
