@@ -51,8 +51,8 @@ export default function RootLayout() {
     if (loaded) {
       (async () => {
         try {
-          const user = await apiClient.get(`/users/${'855418852'}`);
-          setUser(user.data);
+          // const user = await apiClient.get(`/users/${'855418852'}`);
+          // setUser(user.data);
         } catch (err) {
           console.log(err);
         } finally {

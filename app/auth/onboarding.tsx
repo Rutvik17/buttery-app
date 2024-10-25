@@ -14,10 +14,10 @@ const _dotSize = _dotContainer / 3;
 const _layoutTransition = LinearTransition.springify().damping(80).stiffness(200);
 
 const Container = styled(ThemedView)`
-    flex: 1;
     justify-content: center;
     padding: ${_spacing}px;
-    gap: ${_spacing * 2}px;
+    gap: ${_spacing}px;
+    margin-bottom: 24px;
 `;
 
 const ButtonsContainer = styled(ThemedView)`
@@ -70,7 +70,6 @@ const Dot = ({ index, animation }: { index: number, animation: SharedValue }) =>
             width: _dotContainer,
             height: _dotContainer,
             borderRadius: _dotContainer / 2,
-            // backgroundColor: Colors[colorScheme ?? 'light'].jetBlack,
             alignItems: 'center',
             justifyContent: 'center',
         }}>
@@ -132,15 +131,18 @@ const Onboarding: React.FC<OnboardingProps> = ({ total, selectedIndex, onIndexCh
             <ButtonsContainer>
                 {selectedIndex > 0 &&
                     <Button style={{
-                        backgroundColor: Colors[colorScheme ?? 'light'].magenta,
+                        backgroundColor: Colors[colorScheme ?? 'light'].royalPurple,
                     }} onPress={() => onIndexChange(selectedIndex - 1)}>
-                        <ThemedText>
+                        <ThemedText style={{
+                            fontSize: 14,
+                            fontFamily: 'PoppinsLight'
+                        }}>
                             Back
                         </ThemedText>
                     </Button>
                 }
                 <Button style={{
-                    backgroundColor: Colors[colorScheme ?? 'light'].royalPurple,
+                    backgroundColor: Colors[colorScheme ?? 'light'].magenta,
                     flex: 1,
                 }} onPress={() => {
                     if (selectedIndex >= total - 1) {
@@ -152,16 +154,24 @@ const Onboarding: React.FC<OnboardingProps> = ({ total, selectedIndex, onIndexCh
                     {selectedIndex === total - 1 ? (
                         <Animated.Text
                             key="finish"
-                            style={{ color: Colors[colorScheme ?? 'light'].text }}
+                            style={{
+                                fontSize: 14,
+                                color: Colors[colorScheme ?? 'light'].text,
+                                fontFamily: 'PoppinsLight'
+                            }}
                             entering={FadeInDown.springify().damping(80).stiffness(200)}
                             exiting={FadeOutUp.springify().damping(80).stiffness(200)}
                         >
-                            Finish
+                            Enter
                         </Animated.Text>
                     ) : (
                         <Animated.Text
                             key="next"
-                            style={{ color: Colors[colorScheme ?? 'light'].text }}
+                            style={{
+                                fontSize: 14,
+                                color: Colors[colorScheme ?? 'light'].text,
+                                fontFamily: 'PoppinsLight',
+                            }}
                             entering={FadeInDown.springify().damping(80).stiffness(200)}
                             exiting={FadeOutUp.springify().damping(80).stiffness(200)}
                             layout={_layoutTransition}>
